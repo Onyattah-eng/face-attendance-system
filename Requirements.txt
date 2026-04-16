@@ -5,6 +5,6 @@ opencv-python
 deepface
 tensorflow
 keras
-matplotlib
+plotly
 fpdf
 openpyxl
