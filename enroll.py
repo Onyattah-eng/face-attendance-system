@@ -9,23 +9,23 @@ os.makedirs("database", exist_ok=True)
 
 DB_PATH = "database/users.pkl"
 
+
 def load_users():
     if os.path.exists(DB_PATH):
         with open(DB_PATH, "rb") as f:
             return pickle.load(f)
     return []
 
+
 def save_users(users):
     with open(DB_PATH, "wb") as f:
         pickle.dump(users, f)
 
+
 def get_embedding(frame):
-    result = DeepFace.represent(
-        frame,
-        model_name="Facenet",
-        enforce_detection=False
-    )
+    result = DeepFace.represent(frame, model_name="Facenet", enforce_detection=False)
     return np.array(result[0]["embedding"])
+
 
 # ---------------- MAIN ENROLLMENT ---------------- #
 
@@ -47,9 +47,15 @@ while count < samples:
         print("Camera error")
         break
 
-    cv2.putText(frame, f"Capturing sample {count+1}/{samples}",
-                (20, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                1, (0, 255, 0), 2)
+    cv2.putText(
+        frame,
+        f"Capturing sample {count+1}/{samples}",
+        (20, 50),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        1,
+        (0, 255, 0),
+        2,
+    )
 
     cv2.imshow("Enrollment", frame)
 
@@ -77,10 +83,7 @@ final_embedding = np.mean(embeddings, axis=0)
 users = load_users()
 
 # Save new user
-users.append({
-    "name": name,
-    "embedding": final_embedding
-})
+users.append({"name": name, "embedding": final_embedding})
 
 save_users(users)
 
