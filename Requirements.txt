@@ -1,10 +1,3 @@
-streamlit 
-pandas 
-numpy 
-opencv-python 
-deepface 
-tensorflow 
-keras 
-plotly 
-fpdf 
-openpyxl 
+streamlit
+pandas
+plotly==6.7.0
