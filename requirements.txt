@@ -3,7 +3,6 @@ plotly
 pandas
 numpy
 opencv-python-headless
-tensorflow==2.15.0
 deepface
 mtcnn
 python-dotenv
