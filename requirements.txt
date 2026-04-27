@@ -1,0 +1,10 @@
+streamlit
+plotly
+pandas
+numpy
+opencv-python
+tensorflow
+deepface
+mtcnn
+python-dotenv
+requests

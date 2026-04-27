@@ -1,3 +1,0 @@
-streamlit
-pandas
-plotly==6.7.0
